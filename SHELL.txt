@@ -53,7 +53,7 @@ fi
 r=`pal $n`
 echo "$r"
 
-// FACTORIAL
+// FACTORIAL RECURSIVE
 
 #!/bin/bash
 factorial()
@@ -86,6 +86,7 @@ else
 factorial $num
 fi
 
+// FACTORIAL NON=RECURSIVE
 
 echo "Enter a number"
 
