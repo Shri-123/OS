@@ -1,0 +1,102 @@
+// SORTING ARRAY
+
+#!/bin/bash
+read -a arr
+echo "Array in original order"
+echo ${arr[*]}
+
+# Performing Bubble sort
+for ((i = 0; i<${#arr[*]}; i++))
+do
+
+    for((j = 0; j<${#arr[*]}-i-1; j++))
+    do
+
+        if [ ${arr[j]} -gt ${arr[$((j+1))]} ]
+        then
+            # swap
+            temp=${arr[j]}
+            arr[$j]=${arr[$((j+1))]}
+            arr[$((j+1))]=$temp
+        fi
+    done
+done
+
+echo "Array in sorted order :"
+echo ${arr[*]}
+
+
+
+// palindrome with reverse
+
+#!/bin/bash
+echo "Enter the number"
+read n
+function pal
+{
+number=$n
+reverse=0
+while [ $n -gt 0 ]
+do
+a=`expr $n % 10 `
+n=`expr $n / 10 `
+reverse=`expr $reverse \* 10 + $a`
+done
+echo "Reversed Number = $reverse"
+if [ $number -eq $reverse ]
+then
+    echo "Number is palindrome"
+else
+    echo "Number is not palindrome"
+fi
+}
+r=`pal $n`
+echo "$r"
+
+// FACTORIAL
+
+#!/bin/bash
+factorial()
+{
+    product=$1
+
+    # Defining a function to calculate factorial using recursion
+    if((product <= 2)); then
+        echo $product
+    else
+        f=$((product -1))
+
+# Recursive call
+
+f=$(factorial $f)
+f=$((f*product))
+echo $f
+fi
+}
+
+# main program
+# reading the input from user
+echo "Enter the number:"
+read num
+
+# defining a special case for 0! = 1
+if((num == 0)); then
+echo 1
+else
+factorial $num
+fi
+
+
+echo "Enter a number"
+
+# Read the number
+read num
+
+fact=1
+
+for((i=2;i<=num;i++))
+{
+  fact=$((fact * i))
+}
+
+echo $fact
